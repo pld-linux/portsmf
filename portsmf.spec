@@ -3,13 +3,14 @@ Summary(pl.UTF-8):	Port Standard MIDI File - przenośna biblioteka do odczytu/za
 Name:		portsmf
 Version:	0.1
 %define	snap	20101010
-Release:	0.%{snap}.1
+Release:	0.%{snap}.2
 License:	MIT-like
 Group:		Libraries
 # svn co https://portmedia.svn.sourceforge.net/svnroot/portmedia/portsmf/trunk portsmf
 Source0:	%{name}.tar.xz
 # Source0-md5:	654893b608c70230e0838725c563b86f
 Patch0:		%{name}-shared.patch
+Patch1:		%{name}-includes.patch
 URL:		http://sourceforge.net/p/portmedia/wiki/portsmf/
 BuildRequires:	autoconf >= 2.61
 BuildRequires:	automake
@@ -53,6 +54,7 @@ Statyczna biblioteka portSMF.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
 
 %{__rm} configure
 
